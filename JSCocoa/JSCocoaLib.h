@@ -5,6 +5,8 @@
 //  Created by Patrick Geiller on 21/12/08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
+#import <Foundation/Foundation.h>
+#import "JavaScriptCore.h"
 
 #if !TARGET_IPHONE_SIMULATOR && !TARGET_OS_IPHONE
 #import <Cocoa/Cocoa.h>

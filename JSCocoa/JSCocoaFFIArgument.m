@@ -5,6 +5,9 @@
 //  Created by Patrick Geiller on 14/07/08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+#import "JavaScriptCore.h"
 
 #import "JSCocoaFFIArgument.h"
 #import "JSCocoaController.h"
@@ -197,7 +200,7 @@
 	}
 	else	[self allocateStorage];
 
-	id types = [JSCocoaFFIArgument typeEncodingsFromStructureTypeEncoding:encoding];
+	NSArray *types = [JSCocoaFFIArgument typeEncodingsFromStructureTypeEncoding:encoding];
 	NSUInteger elementCount = [types count];
 
 	//
@@ -456,7 +459,7 @@
 			void* p = ptr;
 			id type = [JSCocoaFFIArgument structureFullTypeEncodingFromStructureTypeEncoding:fullTypeEncoding];
 			NSInteger numParsed =	[JSCocoaFFIArgument structureFromJSObjectRef:object inContext:ctx inParentJSValueRef:NULL fromCString:(char*)[type UTF8String] fromStorage:&p];
-			return	numParsed;
+			return	!!numParsed;
 		}
 		case	_C_SEL:
 		{

@@ -32,6 +32,13 @@
 #include "ffi_common.h"
 
 #include <stdlib.h>
+#include <string.h>
+
+extern void ffi_prep_args(char *stack, extended_cif *ecif);
+
+extern void __clear_cache(void *, void *);
+unsigned int
+ffi_closure_SYSV_inner (ffi_closure *, void **, void *);
 
 /* ffi_prep_args is called by the assembly routine once stack space
    has been allocated for the function's arguments */

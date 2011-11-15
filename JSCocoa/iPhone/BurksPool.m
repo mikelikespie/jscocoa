@@ -10,12 +10,13 @@
 #import "JSCocoaController.h"
 #import "JSCocoaFFIArgument.h"
 #import <objc/runtime.h>
+#import <QuartzCore/QuartzCore.h>
 
 
 // Parsed instance implementations for class 
 // IMPs[encoding] = matchingIMP
-static	id IMPs = nil;
-static	id methodEncodings = nil;
+static	NSMutableDictionary *IMPs = nil;
+static	NSMutableDictionary * methodEncodings = nil;
 // Imported from JSCocoaController
 static	id jsFunctionHash = nil;
 
@@ -91,19 +92,19 @@ static	id jsFunctionHash = nil;
 + (JSValueRef)callSelector:(SEL)sel ofInstance:(id)o writeContext:(JSContextRef*)_ctx withArguments:(void*)firstArg, ...
 {
 	id keyForClassAndMethod	= [NSString stringWithFormat:@"%@ %@", [o class], NSStringFromSelector(sel)];
-	id encodings			= [methodEncodings objectForKey:keyForClassAndMethod];
-	id privateObject		= [jsFunctionHash objectForKey:keyForClassAndMethod];
+	id encodings			= [(NSDictionary *)methodEncodings objectForKey:keyForClassAndMethod];
+	id privateObject		= [(NSDictionary *)jsFunctionHash objectForKey:keyForClassAndMethod];
 	
 //	NSLog(@"Call %@ encoding=%@", keyForClassAndMethod, [self flattenEncoding:encodings]);
 
 	if (!encodings)		return	NSLog(@"No encodings found for %@", keyForClassAndMethod), NULL;
 	if (!privateObject)	return	NSLog(@"No js function found for %@", keyForClassAndMethod), NULL;
 
-	JSContextRef ctx = [privateObject ctx];
+	JSContextRef ctx = [(JSCocoaPrivateObject *)privateObject ctx];
 	if (_ctx) *_ctx = ctx;
 
 	// One to skip return value, 2 to skip common ObjC message parameters (instance, selector)
-	int effectiveArgumentCount = [encodings count]-1-2;
+	int effectiveArgumentCount = [(NSArray *)encodings count]-1-2;
 	int idx = 2+1;
 
 	// Convert arguments
@@ -182,7 +183,7 @@ static	id jsFunctionHash = nil;
 	IMPs = [[NSMutableDictionary alloc] init];
 	unsigned int methodCount;
 	Method* methods = class_copyMethodList([self class], &methodCount);
-	for (int i=0; i<methodCount; i++)
+	for (int i=0; i< (int)methodCount; i++)
 	{
 		Method m = methods[i];
 		IMP imp = method_getImplementation(m);

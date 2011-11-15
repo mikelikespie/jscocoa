@@ -629,7 +629,7 @@ static id JSCocoaSingleton = NULL;
 	if (argumentCount)
 	{
 		jsArguments = malloc(sizeof(JSValueRef)*argumentCount);
-		for (int i=0; i<argumentCount; i++)
+		for (int i=0; i<(NSInteger)argumentCount; i++)
 		{
 			char typeEncoding = _C_ID;
 			id argument = [arguments objectAtIndex:i];

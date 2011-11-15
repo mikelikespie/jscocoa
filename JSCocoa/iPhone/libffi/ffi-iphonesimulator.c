@@ -39,6 +39,8 @@
 
 #include <stdlib.h>
 
+extern void ffi_prep_args(char *stack, extended_cif *ecif);
+
 /* ffi_prep_args is called by the assembly routine once stack space
    has been allocated for the function's arguments */
 

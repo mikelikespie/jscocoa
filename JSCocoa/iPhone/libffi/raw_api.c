@@ -26,6 +26,8 @@
 
 /* This file defines generic functions for use with the raw api. */
 
+#include <stdlib.h>
+#include <string.h>
 #include "ffi.h"
 #include "ffi_common.h"
 
