@@ -27,6 +27,8 @@
 #ifndef JSObjectRef_h
 #define JSObjectRef_h
 
+#import "JavaScriptCore.h"
+
 #include "JSBase.h"
 #include "JSValueRef.h"
 

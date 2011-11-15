@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F68E0AE214727049004E40BA /* JavascriptCore-dlsym.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5820C0EA17CAC00EB80D9 /* JavascriptCore-dlsym.m */; };
 		F6B0848F1472639F0031D8A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		F6B084991472640E0031D8A1 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B559B0F1D41F300D60188 /* GDataXMLNode.m */; };
 		F6B0849A1472640E0031D8A1 /* BurksPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DED293E103B970D0093C660 /* BurksPool.m */; };
@@ -17,18 +18,7 @@
 		F6B0849F1472640E0031D8A1 /* JSCocoaLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D64C8850F3F1A45004D610C /* JSCocoaLib.m */; };
 		F6B084A01472640E0031D8A1 /* BridgeSupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA390130EA7523300CB6F74 /* BridgeSupportController.m */; };
 		F6B084AA147264CC0031D8A1 /* JSCocoa-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* JSCocoa-Prefix.pch */; };
-		F6B084B714726B5C0031D8A1 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B084B3147264FD0031D8A1 /* libffi.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F6B084B2147264FD0031D8A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F6B084AB147264FC0031D8A1 /* libffi.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F6B083A014721EE50031D8A1;
-			remoteInfo = libffi;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,7 +58,6 @@
 		3DED293D103B970D0093C660 /* BurksPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BurksPool.h; path = ../JSCocoa/iPhone/BurksPool.h; sourceTree = SOURCE_ROOT; };
 		3DED293E103B970D0093C660 /* BurksPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BurksPool.m; path = ../JSCocoa/iPhone/BurksPool.m; sourceTree = SOURCE_ROOT; };
 		F6B0848E1472639F0031D8A1 /* libJSCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6B084AB147264FC0031D8A1 /* libffi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libffi.xcodeproj; path = ../libffi/libffi.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +66,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B0848F1472639F0031D8A1 /* Foundation.framework in Frameworks */,
-				F6B084B714726B5C0031D8A1 /* libffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +83,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				F6B084AB147264FC0031D8A1 /* libffi.xcodeproj */,
 				3DB581EF0EA17C9000EB80D9 /* JSCocoa */,
 				3D35B89E120B08F000E260FB /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -185,14 +172,6 @@
 			name = iPhone;
 			sourceTree = "<group>";
 		};
-		F6B084AC147264FC0031D8A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F6B084B3147264FD0031D8A1 /* libffi.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -230,7 +209,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "JSCocoa-iPhone" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -241,28 +220,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F6B084AC147264FC0031D8A1 /* Products */;
-					ProjectRef = F6B084AB147264FC0031D8A1 /* libffi.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				F6B0848D1472639F0031D8A1 /* JSCocoa */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		F6B084B3147264FD0031D8A1 /* libffi.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libffi.a;
-			remoteRef = F6B084B2147264FD0031D8A1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6B0848A1472639F0031D8A1 /* Sources */ = {
@@ -277,6 +240,7 @@
 				F6B0849E1472640E0031D8A1 /* JSCocoaFFIClosure.m in Sources */,
 				F6B0849F1472640E0031D8A1 /* JSCocoaLib.m in Sources */,
 				F6B084A01472640E0031D8A1 /* BridgeSupportController.m in Sources */,
+				F68E0AE214727049004E40BA /* JavascriptCore-dlsym.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +338,7 @@
 				F6B084981472639F0031D8A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
