@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F64758F0147389F700A55078 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F64758EE147387CE00A55078 /* libffi.a */; };
 		F68E0AE214727049004E40BA /* JavascriptCore-dlsym.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5820C0EA17CAC00EB80D9 /* JavascriptCore-dlsym.m */; };
 		F6B0848F1472639F0031D8A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		F6B084991472640E0031D8A1 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B559B0F1D41F300D60188 /* GDataXMLNode.m */; };
@@ -19,6 +20,16 @@
 		F6B084A01472640E0031D8A1 /* BridgeSupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA390130EA7523300CB6F74 /* BridgeSupportController.m */; };
 		F6B084AA147264CC0031D8A1 /* JSCocoa-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* JSCocoa-Prefix.pch */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F64758ED147387CE00A55078 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F64758E6147387CE00A55078 /* libffi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6F980BA147386130008F121;
+			remoteInfo = ffi;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,6 +68,7 @@
 		3DCB6EE111D5504F00385AE2 /* jslint-jscocoa.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jslint-jscocoa.js"; path = "../JSCocoa/jslint-jscocoa.js"; sourceTree = SOURCE_ROOT; };
 		3DED293D103B970D0093C660 /* BurksPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BurksPool.h; path = ../JSCocoa/iPhone/BurksPool.h; sourceTree = SOURCE_ROOT; };
 		3DED293E103B970D0093C660 /* BurksPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BurksPool.m; path = ../JSCocoa/iPhone/BurksPool.m; sourceTree = SOURCE_ROOT; };
+		F64758E6147387CE00A55078 /* libffi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libffi.xcodeproj; path = ../libffi/libffi.xcodeproj; sourceTree = "<group>"; };
 		F6B0848E1472639F0031D8A1 /* libJSCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B0848F1472639F0031D8A1 /* Foundation.framework in Frameworks */,
+				F64758F0147389F700A55078 /* libffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +96,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F64758E6147387CE00A55078 /* libffi.xcodeproj */,
 				3DB581EF0EA17C9000EB80D9 /* JSCocoa */,
 				3D35B89E120B08F000E260FB /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -172,6 +186,14 @@
 			name = iPhone;
 			sourceTree = "<group>";
 		};
+		F64758E7147387CE00A55078 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F64758EE147387CE00A55078 /* libffi.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -220,12 +242,28 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F64758E7147387CE00A55078 /* Products */;
+					ProjectRef = F64758E6147387CE00A55078 /* libffi.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F6B0848D1472639F0031D8A1 /* JSCocoa */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F64758EE147387CE00A55078 /* libffi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libffi.a;
+			remoteRef = F64758ED147387CE00A55078 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6B0848A1472639F0031D8A1 /* Sources */ = {
@@ -292,7 +330,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -311,7 +349,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
