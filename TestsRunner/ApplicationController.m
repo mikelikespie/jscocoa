@@ -10,6 +10,8 @@
 #import "JSCocoa.h"
 #import <WebKit/WebKit.h>
 
+
+
 @implementation ApplicationController
 
 @synthesize test_unit, test_delegate, test_webview, test_autocall;
@@ -36,6 +38,11 @@ JSCocoaController* jsc = nil;
 	[[NSApplication sharedApplication] setDelegate:self];
 	NSLog(@"*** Running %@ ***", [JSCocoa runningArchitecture]);
 	
+	
+	// Test 58
+	//	Test custom symbols, immediate NSStrings exported via BridgeSupport
+	NSToolbarPrintItemIdentifier1 = @"printItemIdentifier1";
+	NSToolbarPrintItemIdentifier2 = @"printItemIdentifier2";
 	
 /*	
 	[self cycleContext];
@@ -92,6 +99,8 @@ JSCocoaController* jsc = nil;
 	[jsc release];
 	jsc = [JSCocoa new];
 	[jsc evalJSFile:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"js"]];
+	// Load JSON lib
+	[jsc evalJSFile:[[NSBundle mainBundle] pathForResource:@"json" ofType:@"js"]];
 }
 
 
@@ -113,10 +122,19 @@ int runCount = 0;
 	//
 	runCount++;
 	jsc.delegate = nil;
-	id path = [[NSBundle mainBundle] bundlePath];
+	id path;
+
+
+	// (Test 58) Load manual bridgesupport
+	path = [NSString stringWithFormat:@"%@/Contents/Resources/Tests/Resources/58 manual BridgeSupport.bridgesupport", [[NSBundle mainBundle] bundlePath]];
+	[[BridgeSupportController sharedController] loadBridgeSupport:path];
+
+	// Setup tests path
+	path = [[NSBundle mainBundle] bundlePath];
 	path = [NSString stringWithFormat:@"%@/Contents/Resources/Tests", path];
 //	NSLog(@"Run %d from %@", runCount, path);
 	testCount = 0;
+	
 	if (test_unit)
 		testCount = [jsc runTests:path];
 	BOOL b = !!testCount;
@@ -1157,6 +1175,22 @@ log('block=' + objcBlock);
 JSTestBlocks.testFunction_(objcBlock);
 
 */
+
+
+
+//
+// From Ricardo Quesada
+#pragma mark 58 bridgesupport
+//
+//
+
+
+EXPORT ccColor4F ccc4f(const GLfloat r, const GLfloat g, const GLfloat b, const GLfloat a)
+{
+	ccColor4F c = {r, g, b, a};
+	return (ccColor4F)c;
+}
+
 
 
 

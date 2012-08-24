@@ -10,6 +10,7 @@
 #import "JavascriptCore-dlsym.h"
 
 
+
 //
 // JSBase
 //
@@ -453,73 +454,80 @@ void JSValueUnprotect(JSContextRef ctx, JSValueRef value)
 @implementation JSCocoaSymbolFetcher
 + (void)populateJavascriptCoreSymbols
 {
-	_JSEvaluateScript = dlsym(RTLD_NEXT, "JSEvaluateScript");
-	_JSCheckScriptSyntax = dlsym(RTLD_NEXT, "JSCheckScriptSyntax");
-	_JSGarbageCollect = dlsym(RTLD_NEXT, "JSGarbageCollect");
-	_JSGlobalContextCreate = dlsym(RTLD_NEXT, "JSGlobalContextCreate");
-	_JSGlobalContextRetain = dlsym(RTLD_NEXT, "JSGlobalContextRetain");
-	_JSGlobalContextRelease = dlsym(RTLD_NEXT, "JSGlobalContextRelease");
-	_JSContextGetGlobalObject = dlsym(RTLD_NEXT, "JSContextGetGlobalObject");
-	_JSClassCreate = dlsym(RTLD_NEXT, "JSClassCreate");
-	_JSClassRetain = dlsym(RTLD_NEXT, "JSClassRetain");
-	_JSClassRelease = dlsym(RTLD_NEXT, "JSClassRelease");
-	_JSObjectMake = dlsym(RTLD_NEXT, "JSObjectMake");
-	_JSObjectMakeFunctionWithCallback = dlsym(RTLD_NEXT, "JSObjectMakeFunctionWithCallback");
-	_JSObjectMakeConstructor = dlsym(RTLD_NEXT, "JSObjectMakeConstructor");
-	_JSObjectMakeFunction = dlsym(RTLD_NEXT, "JSObjectMakeFunction");
-	_JSObjectGetPrototype = dlsym(RTLD_NEXT, "JSObjectGetPrototype");
-	_JSObjectSetPrototype = dlsym(RTLD_NEXT, "JSObjectSetPrototype");
-	_JSObjectHasProperty = dlsym(RTLD_NEXT, "JSObjectHasProperty");
-	_JSObjectGetProperty = dlsym(RTLD_NEXT, "JSObjectGetProperty");
-	_JSObjectSetProperty = dlsym(RTLD_NEXT, "JSObjectSetProperty");
-	_JSObjectDeleteProperty = dlsym(RTLD_NEXT, "JSObjectDeleteProperty");
-	_JSObjectGetPropertyAtIndex = dlsym(RTLD_NEXT, "JSObjectGetPropertyAtIndex");
-	_JSObjectSetPropertyAtIndex = dlsym(RTLD_NEXT, "JSObjectSetPropertyAtIndex");
-	_JSObjectGetPrivate = dlsym(RTLD_NEXT, "JSObjectGetPrivate");
-	_JSObjectSetPrivate = dlsym(RTLD_NEXT, "JSObjectSetPrivate");
-	_JSObjectIsFunction = dlsym(RTLD_NEXT, "JSObjectIsFunction");
-	_JSObjectCallAsFunction = dlsym(RTLD_NEXT, "JSObjectCallAsFunction");
-	_JSObjectIsConstructor = dlsym(RTLD_NEXT, "JSObjectIsConstructor");
-	_JSObjectCallAsConstructor = dlsym(RTLD_NEXT, "JSObjectCallAsConstructor");
-	_JSObjectCopyPropertyNames = dlsym(RTLD_NEXT, "JSObjectCopyPropertyNames");
-	_JSPropertyNameArrayRetain = dlsym(RTLD_NEXT, "JSPropertyNameArrayRetain");
-	_JSPropertyNameArrayRelease = dlsym(RTLD_NEXT, "JSPropertyNameArrayRelease");
-	_JSPropertyNameArrayGetCount = dlsym(RTLD_NEXT, "JSPropertyNameArrayGetCount");
-	_JSPropertyNameArrayGetNameAtIndex = dlsym(RTLD_NEXT, "JSPropertyNameArrayGetNameAtIndex");
-	_JSPropertyNameAccumulatorAddName = dlsym(RTLD_NEXT, "JSPropertyNameAccumulatorAddName");
-	_JSStringCreateWithCharacters = dlsym(RTLD_NEXT, "JSStringCreateWithCharacters");
-	_JSStringCreateWithUTF8CString = dlsym(RTLD_NEXT, "JSStringCreateWithUTF8CString");
-	_JSStringRetain = dlsym(RTLD_NEXT, "JSStringRetain");
-	_JSStringRelease = dlsym(RTLD_NEXT, "JSStringRelease");
-	_JSStringGetLength = dlsym(RTLD_NEXT, "JSStringGetLength");
-	_JSStringGetCharactersPtr = dlsym(RTLD_NEXT, "JSStringGetCharactersPtr");
-	_JSStringGetMaximumUTF8CStringSize = dlsym(RTLD_NEXT, "JSStringGetMaximumUTF8CStringSize");
-	_JSStringGetUTF8CString = dlsym(RTLD_NEXT, "JSStringGetUTF8CString");
-	_JSStringIsEqual = dlsym(RTLD_NEXT, "JSStringIsEqual");
-	_JSStringIsEqualToUTF8CString = dlsym(RTLD_NEXT, "JSStringIsEqualToUTF8CString");
-	_JSStringCreateWithCFString = dlsym(RTLD_NEXT, "JSStringCreateWithCFString");
-	_JSStringCopyCFString = dlsym(RTLD_NEXT, "JSStringCopyCFString");
-	_JSValueGetType = dlsym(RTLD_NEXT, "JSValueGetType");
-	_JSValueIsUndefined = dlsym(RTLD_NEXT, "JSValueIsUndefined");
-	_JSValueIsNull = dlsym(RTLD_NEXT, "JSValueIsNull");
-	_JSValueIsBoolean = dlsym(RTLD_NEXT, "JSValueIsBoolean");
-	_JSValueIsNumber = dlsym(RTLD_NEXT, "JSValueIsNumber");
-	_JSValueIsString = dlsym(RTLD_NEXT, "JSValueIsString");
-	_JSValueIsObject = dlsym(RTLD_NEXT, "JSValueIsObject");
-	_JSValueIsObjectOfClass = dlsym(RTLD_NEXT, "JSValueIsObjectOfClass");
-	_JSValueIsEqual = dlsym(RTLD_NEXT, "JSValueIsEqual");
-	_JSValueIsStrictEqual = dlsym(RTLD_NEXT, "JSValueIsStrictEqual");
-	_JSValueIsInstanceOfConstructor = dlsym(RTLD_NEXT, "JSValueIsInstanceOfConstructor");
-	_JSValueMakeUndefined = dlsym(RTLD_NEXT, "JSValueMakeUndefined");
-	_JSValueMakeNull = dlsym(RTLD_NEXT, "JSValueMakeNull");
-	_JSValueMakeBoolean = dlsym(RTLD_NEXT, "JSValueMakeBoolean");
-	_JSValueMakeNumber = dlsym(RTLD_NEXT, "JSValueMakeNumber");
-	_JSValueMakeString = dlsym(RTLD_NEXT, "JSValueMakeString");
-	_JSValueToBoolean = dlsym(RTLD_NEXT, "JSValueToBoolean");
-	_JSValueToNumber = dlsym(RTLD_NEXT, "JSValueToNumber");
-	_JSValueToStringCopy = dlsym(RTLD_NEXT, "JSValueToStringCopy");
-	_JSValueToObject = dlsym(RTLD_NEXT, "JSValueToObject");
-	_JSValueProtect = dlsym(RTLD_NEXT, "JSValueProtect");
-	_JSValueUnprotect = dlsym(RTLD_NEXT, "JSValueUnprotect");
+#define SYM_ORDER RTLD_DEFAULT
+
+	_JSEvaluateScript = dlsym(SYM_ORDER, "JSEvaluateScript");
+	if (_JSEvaluateScript == JSEvaluateScript) {
+		_JSEvaluateScript = NULL;
+		NSLog(@"JSCocoa Symbol population failed. Try switching SYM_ORDER to RTLD_NEXT");
+		return;
+	}
+	_JSCheckScriptSyntax = dlsym(SYM_ORDER, "JSCheckScriptSyntax");
+	_JSGarbageCollect = dlsym(SYM_ORDER, "JSGarbageCollect");
+	_JSGlobalContextCreate = dlsym(SYM_ORDER, "JSGlobalContextCreate");
+	_JSGlobalContextRetain = dlsym(SYM_ORDER, "JSGlobalContextRetain");
+	_JSGlobalContextRelease = dlsym(SYM_ORDER, "JSGlobalContextRelease");
+	_JSContextGetGlobalObject = dlsym(SYM_ORDER, "JSContextGetGlobalObject");
+	_JSClassCreate = dlsym(SYM_ORDER, "JSClassCreate");
+	_JSClassRetain = dlsym(SYM_ORDER, "JSClassRetain");
+	_JSClassRelease = dlsym(SYM_ORDER, "JSClassRelease");
+	_JSObjectMake = dlsym(SYM_ORDER, "JSObjectMake");
+	_JSObjectMakeFunctionWithCallback = dlsym(SYM_ORDER, "JSObjectMakeFunctionWithCallback");
+	_JSObjectMakeConstructor = dlsym(SYM_ORDER, "JSObjectMakeConstructor");
+	_JSObjectMakeFunction = dlsym(SYM_ORDER, "JSObjectMakeFunction");
+	_JSObjectGetPrototype = dlsym(SYM_ORDER, "JSObjectGetPrototype");
+	_JSObjectSetPrototype = dlsym(SYM_ORDER, "JSObjectSetPrototype");
+	_JSObjectHasProperty = dlsym(SYM_ORDER, "JSObjectHasProperty");
+	_JSObjectGetProperty = dlsym(SYM_ORDER, "JSObjectGetProperty");
+	_JSObjectSetProperty = dlsym(SYM_ORDER, "JSObjectSetProperty");
+	_JSObjectDeleteProperty = dlsym(SYM_ORDER, "JSObjectDeleteProperty");
+	_JSObjectGetPropertyAtIndex = dlsym(SYM_ORDER, "JSObjectGetPropertyAtIndex");
+	_JSObjectSetPropertyAtIndex = dlsym(SYM_ORDER, "JSObjectSetPropertyAtIndex");
+	_JSObjectGetPrivate = dlsym(SYM_ORDER, "JSObjectGetPrivate");
+	_JSObjectSetPrivate = dlsym(SYM_ORDER, "JSObjectSetPrivate");
+	_JSObjectIsFunction = dlsym(SYM_ORDER, "JSObjectIsFunction");
+	_JSObjectCallAsFunction = dlsym(SYM_ORDER, "JSObjectCallAsFunction");
+	_JSObjectIsConstructor = dlsym(SYM_ORDER, "JSObjectIsConstructor");
+	_JSObjectCallAsConstructor = dlsym(SYM_ORDER, "JSObjectCallAsConstructor");
+	_JSObjectCopyPropertyNames = dlsym(SYM_ORDER, "JSObjectCopyPropertyNames");
+	_JSPropertyNameArrayRetain = dlsym(SYM_ORDER, "JSPropertyNameArrayRetain");
+	_JSPropertyNameArrayRelease = dlsym(SYM_ORDER, "JSPropertyNameArrayRelease");
+	_JSPropertyNameArrayGetCount = dlsym(SYM_ORDER, "JSPropertyNameArrayGetCount");
+	_JSPropertyNameArrayGetNameAtIndex = dlsym(SYM_ORDER, "JSPropertyNameArrayGetNameAtIndex");
+	_JSPropertyNameAccumulatorAddName = dlsym(SYM_ORDER, "JSPropertyNameAccumulatorAddName");
+	_JSStringCreateWithCharacters = dlsym(SYM_ORDER, "JSStringCreateWithCharacters");
+	_JSStringCreateWithUTF8CString = dlsym(SYM_ORDER, "JSStringCreateWithUTF8CString");
+	_JSStringRetain = dlsym(SYM_ORDER, "JSStringRetain");
+	_JSStringRelease = dlsym(SYM_ORDER, "JSStringRelease");
+	_JSStringGetLength = dlsym(SYM_ORDER, "JSStringGetLength");
+	_JSStringGetCharactersPtr = dlsym(SYM_ORDER, "JSStringGetCharactersPtr");
+	_JSStringGetMaximumUTF8CStringSize = dlsym(SYM_ORDER, "JSStringGetMaximumUTF8CStringSize");
+	_JSStringGetUTF8CString = dlsym(SYM_ORDER, "JSStringGetUTF8CString");
+	_JSStringIsEqual = dlsym(SYM_ORDER, "JSStringIsEqual");
+	_JSStringIsEqualToUTF8CString = dlsym(SYM_ORDER, "JSStringIsEqualToUTF8CString");
+	_JSStringCreateWithCFString = dlsym(SYM_ORDER, "JSStringCreateWithCFString");
+	_JSStringCopyCFString = dlsym(SYM_ORDER, "JSStringCopyCFString");
+	_JSValueGetType = dlsym(SYM_ORDER, "JSValueGetType");
+	_JSValueIsUndefined = dlsym(SYM_ORDER, "JSValueIsUndefined");
+	_JSValueIsNull = dlsym(SYM_ORDER, "JSValueIsNull");
+	_JSValueIsBoolean = dlsym(SYM_ORDER, "JSValueIsBoolean");
+	_JSValueIsNumber = dlsym(SYM_ORDER, "JSValueIsNumber");
+	_JSValueIsString = dlsym(SYM_ORDER, "JSValueIsString");
+	_JSValueIsObject = dlsym(SYM_ORDER, "JSValueIsObject");
+	_JSValueIsObjectOfClass = dlsym(SYM_ORDER, "JSValueIsObjectOfClass");
+	_JSValueIsEqual = dlsym(SYM_ORDER, "JSValueIsEqual");
+	_JSValueIsStrictEqual = dlsym(SYM_ORDER, "JSValueIsStrictEqual");
+	_JSValueIsInstanceOfConstructor = dlsym(SYM_ORDER, "JSValueIsInstanceOfConstructor");
+	_JSValueMakeUndefined = dlsym(SYM_ORDER, "JSValueMakeUndefined");
+	_JSValueMakeNull = dlsym(SYM_ORDER, "JSValueMakeNull");
+	_JSValueMakeBoolean = dlsym(SYM_ORDER, "JSValueMakeBoolean");
+	_JSValueMakeNumber = dlsym(SYM_ORDER, "JSValueMakeNumber");
+	_JSValueMakeString = dlsym(SYM_ORDER, "JSValueMakeString");
+	_JSValueToBoolean = dlsym(SYM_ORDER, "JSValueToBoolean");
+	_JSValueToNumber = dlsym(SYM_ORDER, "JSValueToNumber");
+	_JSValueToStringCopy = dlsym(SYM_ORDER, "JSValueToStringCopy");
+	_JSValueToObject = dlsym(SYM_ORDER, "JSValueToObject");
+	_JSValueProtect = dlsym(SYM_ORDER, "JSValueProtect");
+	_JSValueUnprotect = dlsym(SYM_ORDER, "JSValueUnprotect");
 }
 @end
